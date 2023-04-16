@@ -1,0 +1,32 @@
+.textContainer {
+  margin-top: 50px;
+  margin-bottom: 70px;
+  width: 75%;
+  border: 1.5px solid rgb(189, 189, 189);
+  border-radius: 10px;
+  box-shadow: 4px 5px 10px rgb(192, 192, 192);
+  padding: 10px;
+}
+
+.currentIndex {
+  background-color: rgb(28, 168, 28);
+  color: white;
+  border-radius: 2px;
+}
+
+.spaceBorder {
+  background-color: green;
+  margin-left: 0.5px;
+  margin-right: 0.5px;
+  border-radius: 2px;
+}
+
+.errorInput {
+  background: rgb(247, 41, 41);
+  border-radius: 2px;
+  color: white;
+}
+
+.writtenText {
+  color: green;
+}
