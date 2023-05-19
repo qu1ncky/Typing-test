@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import styles from "./App.module.css";
 import TextArea from "./components/TextArea";
 import InfoBlock from "./components/InfoBlock";
+import Result from "./components/Result";
 
 const ignoreButtons = new Set([
   "Backspace",
@@ -24,6 +25,8 @@ function App() {
   const [color, setColor] = useState("green");
   const [accuracy, setAccuracy] = useState(100);
   const [isActive, setIsActive] = useState("nonActive");
+  const [wpm, setWpm] = useState(0);
+
 
   const inputHandler = ({ key }) => {
     if (correct + incorrect !== 0) {
@@ -66,12 +69,14 @@ function App() {
         <h3>Correct: {correct}</h3>
         <h3>Incorrect: {incorrect}</h3>
         <h3>Accuracy: {accuracy}%</h3>
+        <h3>WPM: {wpm}</h3>
         <InfoBlock
           input={input}
           correct={correct}
           incorrect={incorrect}
           accuracy={accuracy}
           isActive={isActive}
+          setWpm={setWpm}
         />
       </div>
       <TextArea
@@ -79,6 +84,11 @@ function App() {
         text={text}
         color={color}
       ></TextArea>
+      <Result
+      accuracy={accuracy}
+      wpm={wpm}
+      >
+      </Result>
     </div>
   );
 }

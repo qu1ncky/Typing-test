@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./InfoBlock.module.css";
 
-const InfoBlock = ({ input, correct, incorrect, accuracy, isActive }) => {
+const InfoBlock = ({ input, isActive, setWpm}) => {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(0);
-  const [wpm, setWpm] = useState(0);
 
   useEffect(() => {
     let timer;
@@ -29,7 +28,8 @@ const InfoBlock = ({ input, correct, incorrect, accuracy, isActive }) => {
     if (isActive === "active" && seconds !== 0) {
       const time = minutes / 60 + seconds;
       const spm = (input.length / time) * 60;
-      setWpm(Math.round(spm / 5));
+      const newWpm = (Math.round(spm / 5));
+      setWpm(newWpm);
     }
   }, [input, seconds]);
 
@@ -39,7 +39,6 @@ const InfoBlock = ({ input, correct, incorrect, accuracy, isActive }) => {
         Time: {minutes < 10 ? "0" + minutes : minutes}:
         {seconds < 10 ? "0" + seconds : seconds}{" "}
       </h3>
-      <h3>WPM: {wpm} </h3>
     </div>
   );
 };
